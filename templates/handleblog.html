@@ -1,0 +1,36 @@
+{% extends 'basic.html' %} 
+
+{% block title %} Blog {% endblock title %} 
+
+{% block body %}
+{% load static %}
+
+<!-- ======= Services Section ======= -->
+<section id="services" class="services">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Welcome to My Projects Section </h2>
+
+        <div class="row">
+        {% for post in posts reversed %}
+
+       
+    
+  
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+            <div class="col-lg-4" data-aos="fade-right">
+                <img src="{{  post.img.url  }}" class="img-fluid" alt="no image found">
+              </div> <br>
+          <div class="icon"><i class="bi bi-briefcase"></i></div>
+          <h4 class="title">{{ post.title }}</h4>
+          <p class="description">{{ post.description }}</p> <br>
+          <h6> Tech Stack Used : <b> {{ post.techstack }} </b></h6>
+        <h6> Posted on : <b> {{ post.timestamp }} </b></h6>
+        </div>
+
+        {% endfor %}
+  </section><!-- End Services Section -->
+
+
+{% endblock body %}
