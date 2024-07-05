@@ -1,0 +1,17 @@
+{
+  "builds": [{
+      "src": "sanskar_portfolio/wsgi.py",
+      "use": "@vercel/python",
+      "config": {
+          "maxLambdaSize": "15mb",
+          "runtime": "python3.9",
+          "buildCommand": "pip install setuptools && pip install --disable-pip-version-check --target . --upgrade -r /vercel/path0/requirements.txt"
+      }
+  }],
+  "routes": [
+      {
+          "src": "/(.*)",
+          "dest": "sanskar_portfolio/wsgi.py"
+      }
+  ]
+}
